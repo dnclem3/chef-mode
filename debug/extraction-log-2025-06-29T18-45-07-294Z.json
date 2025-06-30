@@ -1,0 +1,161 @@
+{
+  "url": "https://www.allrecipes.com/recipe/158140/spaghetti-sauce-with-ground-beef/",
+  "startTime": 49996551.199916,
+  "steps": [
+    {
+      "name": "URL Fetch",
+      "startTime": 49996551.485958,
+      "endTime": 49996929.594,
+      "duration": 378.10804199427366,
+      "outputChars": 632678
+    },
+    {
+      "name": "HTML Extraction",
+      "startTime": 49996930.714208,
+      "endTime": 49998036.27825,
+      "duration": 1105.5640420019627,
+      "inputChars": 632678,
+      "outputChars": 10814
+    },
+    {
+      "name": "OpenAI Extraction",
+      "startTime": 49998037.997291,
+      "endTime": 50021671.960416,
+      "duration": 23633.963124997914,
+      "inputChars": 10814,
+      "outputChars": 2595
+    }
+  ],
+  "status": "success",
+  "endTime": 50021672.052875,
+  "totalDuration": 25120.852958999574,
+  "recipe": {
+    "title": "Homemade Spaghetti Sauce with Ground Beef",
+    "subcomponents": [
+      {
+        "name": "Sauce",
+        "ingredients": [
+          {
+            "quantity": "1 pound",
+            "ingredient": "ground beef"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "medium onion, chopped"
+          },
+          {
+            "quantity": "4 cloves",
+            "ingredient": "garlic, minced"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "small green bell pepper, diced"
+          },
+          {
+            "quantity": "1 (28 ounce) can",
+            "ingredient": "diced tomatoes"
+          },
+          {
+            "quantity": "1 (16 ounce) can",
+            "ingredient": "tomato sauce"
+          },
+          {
+            "quantity": "1 (6 ounce) can",
+            "ingredient": "tomato paste"
+          },
+          {
+            "quantity": "2 teaspoons",
+            "ingredient": "dried oregano"
+          },
+          {
+            "quantity": "2 teaspoons",
+            "ingredient": "dried basil"
+          },
+          {
+            "quantity": "1 teaspoon",
+            "ingredient": "salt"
+          },
+          {
+            "quantity": "½ teaspoon",
+            "ingredient": "ground black pepper"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "Gather all ingredients.",
+        "ingredients": [],
+        "time": null
+      },
+      {
+        "instruction": "Combine ground beef, onion, garlic, and green pepper in a large saucepan over medium-high heat. Cook and stir until meat is browned and crumbly and vegetables are tender, 5 to 7 minutes. Drain grease.",
+        "ingredients": [
+          {
+            "quantity": "1 pound",
+            "ingredient": "ground beef"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "medium onion, chopped"
+          },
+          {
+            "quantity": "4 cloves",
+            "ingredient": "garlic, minced"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "small green bell pepper, diced"
+          }
+        ],
+        "time": {
+          "duration": "5 to 7 minutes",
+          "action": "cook and stir meat and vegetables"
+        }
+      },
+      {
+        "instruction": "Stir diced tomatoes, tomato sauce, and tomato paste into the pan. Season with oregano, basil, salt, and pepper. Simmer spaghetti sauce for 1 hour, stirring occasionally.",
+        "ingredients": [
+          {
+            "quantity": "1 (28 ounce) can",
+            "ingredient": "diced tomatoes"
+          },
+          {
+            "quantity": "1 (16 ounce) can",
+            "ingredient": "tomato sauce"
+          },
+          {
+            "quantity": "1 (6 ounce) can",
+            "ingredient": "tomato paste"
+          },
+          {
+            "quantity": "2 teaspoons",
+            "ingredient": "dried oregano"
+          },
+          {
+            "quantity": "2 teaspoons",
+            "ingredient": "dried basil"
+          },
+          {
+            "quantity": "1 teaspoon",
+            "ingredient": "salt"
+          },
+          {
+            "quantity": "½ teaspoon",
+            "ingredient": "ground black pepper"
+          }
+        ],
+        "time": {
+          "duration": "1 hour",
+          "action": "simmer spaghetti sauce"
+        }
+      },
+      {
+        "instruction": "Serve hot and enjoy!",
+        "ingredients": [],
+        "time": null
+      }
+    ],
+    "sourceUrl": "https://www.allrecipes.com/recipe/158140/spaghetti-sauce-with-ground-beef/"
+  }
+}

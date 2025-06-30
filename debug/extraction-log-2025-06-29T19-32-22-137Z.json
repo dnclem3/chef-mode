@@ -1,0 +1,107 @@
+{
+  "url": "https://www.aspicyperspective.com/best-hamburger-patty-recipe/",
+  "startTime": 52832358.923291,
+  "steps": [
+    {
+      "name": "URL Fetch",
+      "startTime": 52832359.122291,
+      "endTime": 52832483.281625,
+      "duration": 124.15933400392532,
+      "outputChars": 492470
+    },
+    {
+      "name": "HTML Extraction",
+      "startTime": 52832483.566125,
+      "endTime": 52832964.836083,
+      "duration": 481.26995800435543,
+      "inputChars": 492470,
+      "outputChars": 11556
+    },
+    {
+      "name": "OpenAI Extraction",
+      "startTime": 52832967.266041,
+      "endTime": 52856222.431333,
+      "duration": 23255.16529199481,
+      "inputChars": 11556,
+      "outputChars": 2545
+    }
+  ],
+  "status": "success",
+  "endTime": 52856222.5115,
+  "totalDuration": 23863.58820900321,
+  "recipe": {
+    "title": "Best Hamburger Patty Recipe (Grilled or Stovetop)",
+    "subcomponents": [],
+    "steps": [
+      {
+        "instruction": "Set out a large mixing bowl. Add in the ground beef, crushed crackers, egg, Worcestershire sauce, milk, salt, garlic powder, onion powder, and pepper. Mix by hand until the meat mixture is smooth, but stop once the mixture looks even. (Overmixing can create a dense heavy texture.)",
+        "ingredients": [
+          {
+            "quantity": "2 pounds",
+            "ingredient": "ground chuck"
+          },
+          {
+            "quantity": "½ cup",
+            "ingredient": "crushed saltine crackers or Panko breadcrumbs"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "large egg"
+          },
+          {
+            "quantity": "2 tablespoons",
+            "ingredient": "Worcestershire sauce"
+          },
+          {
+            "quantity": "2 tablespoons",
+            "ingredient": "milk"
+          },
+          {
+            "quantity": "1 teaspoon",
+            "ingredient": "salt"
+          },
+          {
+            "quantity": "1 teaspoon",
+            "ingredient": "garlic powder"
+          },
+          {
+            "quantity": "1 teaspoon",
+            "ingredient": "onion powder"
+          },
+          {
+            "quantity": "½ teaspoon",
+            "ingredient": "black pepper"
+          }
+        ],
+        "time": null
+      },
+      {
+        "instruction": "Press the meat down in the bowl, into an even disk. Use a knife to cut and divide the hamburger patty mixture into 6 – 1/3 pound grill or skillet patties, or 12 thin griddle patties.",
+        "ingredients": [],
+        "time": null
+      },
+      {
+        "instruction": "Set out a baking sheet, lined with wax paper or foil, to hold the patties. One at a time, gather the patty mix and press firmly into patties. Shape them just slightly larger than the buns you plan to use, to account for shrinkage during cooking. Set the patties on the baking sheet. Use a spoon to press a dent in the center of each patty so they don't puff up as they cook. If you need to stack the patties separate them with a sheet of wax paper.",
+        "ingredients": [],
+        "time": null
+      },
+      {
+        "instruction": "Preheat the grill or a skillet to medium heat. (Approximately 350-400 degrees F.)",
+        "ingredients": [],
+        "time": {
+          "duration": "15 minutes",
+          "action": "preheat the grill or a skillet"
+        }
+      },
+      {
+        "instruction": "For thick patties: Grill or fry the patties for 3-4 minutes per side. For thin patties: Cook on the griddle for 2 minutes per side. Stack the hot patties on hamburgers buns, and top with your favorite hamburgers toppings. Serve warm.",
+        "ingredients": [],
+        "time": {
+          "duration": "8 minutes",
+          "action": "grill or fry the patties"
+        }
+      }
+    ],
+    "sourceUrl": "https://www.aspicyperspective.com/best-hamburger-patty-recipe/"
+  }
+}

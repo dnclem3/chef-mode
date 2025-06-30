@@ -1,0 +1,218 @@
+{
+  "url": "https://www.loveandlemons.com/chickpea-salad-sandwich/",
+  "startTime": 7805865.832583,
+  "steps": [
+    {
+      "name": "URL Fetch",
+      "startTime": 7805865.895625,
+      "endTime": 7806091.452541,
+      "duration": 225.5569160003215,
+      "outputChars": 755817
+    },
+    {
+      "name": "HTML Extraction",
+      "startTime": 7806091.704625,
+      "endTime": 7806417.773333,
+      "duration": 326.0687079997733,
+      "inputChars": 755817,
+      "outputChars": 1873
+    },
+    {
+      "name": "OpenAI Extraction",
+      "startTime": 7806418.940583,
+      "endTime": 7842488.707541,
+      "duration": 36069.76695800014,
+      "inputChars": 1873,
+      "outputChars": 4296
+    }
+  ],
+  "status": "success",
+  "endTime": 7842488.785416,
+  "totalDuration": 36622.95283299964,
+  "recipe": {
+    "title": "Chickpea Salad Sandwich",
+    "subcomponents": [
+      {
+        "name": "Chickpea Salad",
+        "ingredients": [
+          {
+            "quantity": "1½ cups",
+            "ingredient": "cooked chickpeas, drained and rinsed"
+          },
+          {
+            "quantity": "2 tablespoons",
+            "ingredient": "tahini"
+          },
+          {
+            "quantity": "1 teaspoon",
+            "ingredient": "Dijon mustard"
+          },
+          {
+            "quantity": "½",
+            "ingredient": "garlic clove"
+          },
+          {
+            "quantity": "1 teaspoon",
+            "ingredient": "capers"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "green onion, chopped"
+          },
+          {
+            "quantity": "2 tablespoons",
+            "ingredient": "chopped cilantro"
+          },
+          {
+            "quantity": "2 tablespoons",
+            "ingredient": "fresh lemon juice"
+          },
+          {
+            "quantity": null,
+            "ingredient": "sea salt and freshly ground black pepper"
+          }
+        ]
+      },
+      {
+        "name": "Sandwiches",
+        "ingredients": [
+          {
+            "quantity": "handful",
+            "ingredient": "thin green beans, trimmed"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "soft baguette, sliced in half"
+          },
+          {
+            "quantity": "8 to 10",
+            "ingredient": "Kalamata olives, pitted and sliced in half"
+          },
+          {
+            "quantity": null,
+            "ingredient": "thinly sliced red onion, rinsed and dried"
+          },
+          {
+            "quantity": null,
+            "ingredient": "vegan mayo (or regular mayo), for spreading"
+          },
+          {
+            "quantity": "¼",
+            "ingredient": "English cucumber, thinly sliced"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "radish, thinly sliced"
+          },
+          {
+            "quantity": "6 to 8",
+            "ingredient": "fresh basil leaves"
+          },
+          {
+            "quantity": null,
+            "ingredient": "sea salt and freshly ground black pepper"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "Make the chickpea salad: In a food processor, combine the chickpeas, tahini, Dijon mustard, garlic, capers, green onions, cilantro, lemon juice, and pinches of salt and pepper. Pulse until combined, but do not puree. Season to taste.",
+        "ingredients": [
+          {
+            "quantity": "1½ cups",
+            "ingredient": "cooked chickpeas, drained and rinsed"
+          },
+          {
+            "quantity": "2 tablespoons",
+            "ingredient": "tahini"
+          },
+          {
+            "quantity": "1 teaspoon",
+            "ingredient": "Dijon mustard"
+          },
+          {
+            "quantity": "½",
+            "ingredient": "garlic clove"
+          },
+          {
+            "quantity": "1 teaspoon",
+            "ingredient": "capers"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "green onion, chopped"
+          },
+          {
+            "quantity": "2 tablespoons",
+            "ingredient": "chopped cilantro"
+          },
+          {
+            "quantity": "2 tablespoons",
+            "ingredient": "fresh lemon juice"
+          },
+          {
+            "quantity": null,
+            "ingredient": "sea salt and freshly ground black pepper"
+          }
+        ],
+        "time": {
+          "duration": "20 minutes",
+          "action": "prepare Chickpea Salad"
+        }
+      },
+      {
+        "instruction": "Blanch the green beans. Bring a small pot of salted water to a boil and place a bowl of ice water nearby. Drop the green beans into the boiling water for 1½ minutes, then scoop into the ice water to stop the cooking process. Once cool, drain, pat dry, and chop into 1-inch pieces.",
+        "ingredients": [
+          {
+            "quantity": "handful",
+            "ingredient": "thin green beans, trimmed"
+          }
+        ],
+        "time": {
+          "duration": "5 minutes",
+          "action": "blanch green beans"
+        }
+      },
+      {
+        "instruction": "Assemble the sandwiches: Spread the chickpea salad on one side of the baguette. Press the chopped green beans into the chickpea salad and top with the olives and red onion slices. Spread of layer of mayo on the other half of the baguette and top with the sliced cucumbers, radishes, and basil. Season with salt and pepper, to taste. Press together, slice, and enjoy!",
+        "ingredients": [
+          {
+            "quantity": "1",
+            "ingredient": "soft baguette, sliced in half"
+          },
+          {
+            "quantity": "8 to 10",
+            "ingredient": "Kalamata olives, pitted and sliced in half"
+          },
+          {
+            "quantity": null,
+            "ingredient": "thinly sliced red onion, rinsed and dried"
+          },
+          {
+            "quantity": null,
+            "ingredient": "vegan mayo (or regular mayo), for spreading"
+          },
+          {
+            "quantity": "¼",
+            "ingredient": "English cucumber, thinly sliced"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "radish, thinly sliced"
+          },
+          {
+            "quantity": "6 to 8",
+            "ingredient": "fresh basil leaves"
+          },
+          {
+            "quantity": null,
+            "ingredient": "sea salt and freshly ground black pepper"
+          }
+        ],
+        "time": null
+      }
+    ],
+    "sourceUrl": "https://www.loveandlemons.com/chickpea-salad-sandwich/"
+  }
+}

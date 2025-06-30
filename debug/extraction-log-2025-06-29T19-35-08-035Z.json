@@ -1,0 +1,192 @@
+{
+  "url": "https://thecozycook.com/one-pot-spaghetti/",
+  "startTime": 52998489.915875,
+  "steps": [
+    {
+      "name": "URL Fetch",
+      "startTime": 52998489.977,
+      "endTime": 52998578.587041,
+      "duration": 88.61004099994898,
+      "outputChars": 264456
+    },
+    {
+      "name": "HTML Extraction",
+      "startTime": 52998578.7195,
+      "endTime": 52998867.574041,
+      "duration": 288.85454100370407,
+      "inputChars": 264456,
+      "outputChars": 6579
+    },
+    {
+      "name": "OpenAI Extraction",
+      "startTime": 52998869.09,
+      "endTime": 53030163.899541,
+      "duration": 31294.809540994465,
+      "inputChars": 6579,
+      "outputChars": 3630
+    }
+  ],
+  "status": "success",
+  "endTime": 53030164.000625,
+  "totalDuration": 31674.084749996662,
+  "recipe": {
+    "title": "One Pot Spaghetti",
+    "subcomponents": [
+      {
+        "name": "Spaghetti",
+        "ingredients": [
+          {
+            "quantity": "1 pound",
+            "ingredient": "ground beef, 85% lean"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "small onion, diced"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "small bell pepper, diced"
+          },
+          {
+            "quantity": "3 cloves",
+            "ingredient": "garlic, minced"
+          },
+          {
+            "quantity": "½ teaspoon",
+            "ingredient": "garlic powder"
+          },
+          {
+            "quantity": "½ teaspoon",
+            "ingredient": "onion powder"
+          },
+          {
+            "quantity": "½ teaspoon",
+            "ingredient": "Italian Seasonings"
+          },
+          {
+            "quantity": "to taste",
+            "ingredient": "Salt/pepper"
+          },
+          {
+            "quantity": "2½ cups",
+            "ingredient": "chicken broth, or beef broth"
+          },
+          {
+            "quantity": "14.5 oz.",
+            "ingredient": "diced tomatoes, undrained"
+          },
+          {
+            "quantity": "½ pound",
+            "ingredient": "spaghetti, uncooked"
+          },
+          {
+            "quantity": "24 oz.",
+            "ingredient": "marinara sauce"
+          },
+          {
+            "quantity": "2 Tablespoons",
+            "ingredient": "cream cheese, softened (optional, but recommended!)"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "Cook and crumble the ground beef and onions over medium-high heat until nearly cooked through. Add the diced peppers, garlic, and seasonings during the last 2-3 minutes. Set aside on a separate plate and drain any grease.",
+        "ingredients": [
+          {
+            "quantity": "1 pound",
+            "ingredient": "ground beef, 85% lean"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "small onion, diced"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "small bell pepper, diced"
+          },
+          {
+            "quantity": "3 cloves",
+            "ingredient": "garlic, minced"
+          },
+          {
+            "quantity": "½ teaspoon",
+            "ingredient": "garlic powder"
+          },
+          {
+            "quantity": "½ teaspoon",
+            "ingredient": "onion powder"
+          },
+          {
+            "quantity": "½ teaspoon",
+            "ingredient": "Italian Seasonings"
+          },
+          {
+            "quantity": "to taste",
+            "ingredient": "Salt/pepper"
+          }
+        ],
+        "time": null
+      },
+      {
+        "instruction": "Add chicken broth to the pot and use a silicone spatula to “clean” the brown spots on the bottom.  Bring the broth to a boil.",
+        "ingredients": [
+          {
+            "quantity": "2½ cups",
+            "ingredient": "chicken broth, or beef broth"
+          }
+        ],
+        "time": {
+          "duration": "5 minutes",
+          "action": "bring broth to a boil"
+        }
+      },
+      {
+        "instruction": "Add the uncooked spaghetti noodles and use kitchen tongs to twist the noodles into the pot as they soften. Once softened, add the undrained diced tomatoes.",
+        "ingredients": [
+          {
+            "quantity": "½ pound",
+            "ingredient": "spaghetti, uncooked"
+          },
+          {
+            "quantity": "14.5 oz.",
+            "ingredient": "diced tomatoes, undrained"
+          }
+        ],
+        "time": null
+      },
+      {
+        "instruction": "Add the marinara sauce and softened cream cheese. Submerge the pasta underneath. Cover partially and simmer until cooked through, the pasta will take about 15-20 minutes total. Periodically run a silicone spatula along the bottom of the pot to ensure the pasta doesn’t stick.",
+        "ingredients": [
+          {
+            "quantity": "24 oz.",
+            "ingredient": "marinara sauce"
+          },
+          {
+            "quantity": "2 Tablespoons",
+            "ingredient": "cream cheese, softened (optional, but recommended!)"
+          }
+        ],
+        "time": {
+          "duration": "15-20 minutes",
+          "action": "simmer pasta"
+        }
+      },
+      {
+        "instruction": "Add the meat back to the sauce and heat through. Serve with garlic bread with cheese.",
+        "ingredients": [
+          {
+            "quantity": "1 pound",
+            "ingredient": "cooked ground beef"
+          }
+        ],
+        "time": {
+          "duration": "5 minutes",
+          "action": "heat through"
+        }
+      }
+    ],
+    "sourceUrl": "https://thecozycook.com/one-pot-spaghetti/"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "url": "https://pinchofyum.com/vegan-crunchwrap",
+  "startTime": 7148970.571041,
+  "steps": [
+    {
+      "name": "URL Fetch",
+      "startTime": 7148970.626541,
+      "endTime": 7149131.426125,
+      "duration": 160.7995840003714,
+      "outputChars": 387385
+    },
+    {
+      "name": "HTML Extraction",
+      "startTime": 7149131.526875,
+      "endTime": 7149361.21175,
+      "duration": 229.6848749993369,
+      "inputChars": 387385,
+      "outputChars": 188
+    },
+    {
+      "name": "OpenAI Extraction",
+      "startTime": 7149364.571,
+      "endTime": 7157216.373833,
+      "duration": 7851.802832999267,
+      "inputChars": 188,
+      "outputChars": 828
+    }
+  ],
+  "status": "success",
+  "endTime": 7157217.089833,
+  "totalDuration": 8246.518791999668,
+  "recipe": {
+    "title": "Vegan Crunchwrap",
+    "subcomponents": [
+      {
+        "name": "Crunchwrap",
+        "ingredients": [
+          {
+            "quantity": "",
+            "ingredient": "sofritas tofu"
+          },
+          {
+            "quantity": "",
+            "ingredient": "cashew queso"
+          },
+          {
+            "quantity": "",
+            "ingredient": "wrap"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "Stuff the wrap with sofritas tofu and cashew queso.",
+        "ingredients": [
+          {
+            "quantity": "",
+            "ingredient": "sofritas tofu"
+          },
+          {
+            "quantity": "",
+            "ingredient": "cashew queso"
+          },
+          {
+            "quantity": "",
+            "ingredient": "wrap"
+          }
+        ],
+        "time": null
+      },
+      {
+        "instruction": "Wrap it up and fry.",
+        "ingredients": [],
+        "time": null
+      },
+      {
+        "instruction": "Devour the crunchwrap.",
+        "ingredients": [],
+        "time": null
+      }
+    ],
+    "sourceUrl": "https://pinchofyum.com/vegan-crunchwrap"
+  }
+}

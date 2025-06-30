@@ -1,0 +1,168 @@
+{
+  "url": "https://www.allrecipes.com/recipe/22469/barbecue-ribs/",
+  "startTime": 7900458.481458,
+  "steps": [
+    {
+      "name": "URL Fetch",
+      "startTime": 7900458.530208,
+      "endTime": 7900778.010958,
+      "duration": 319.4807500001043,
+      "outputChars": 610135
+    },
+    {
+      "name": "HTML Extraction",
+      "startTime": 7900778.300458,
+      "endTime": 7901156.081458,
+      "duration": 377.78099999949336,
+      "inputChars": 610135,
+      "outputChars": 5407
+    },
+    {
+      "name": "OpenAI Extraction",
+      "startTime": 7901158.4885,
+      "endTime": 7921595.749791,
+      "duration": 20437.26129100006,
+      "inputChars": 5407,
+      "outputChars": 2722
+    }
+  ],
+  "status": "success",
+  "endTime": 7921595.803541,
+  "totalDuration": 21137.322083000094,
+  "recipe": {
+    "title": "Barbecue Ribs",
+    "subcomponents": [
+      {
+        "name": "BBQ Ribs",
+        "ingredients": [
+          {
+            "quantity": "4 pounds",
+            "ingredient": "pork spareribs"
+          },
+          {
+            "quantity": "1 cup",
+            "ingredient": "brown sugar"
+          },
+          {
+            "quantity": "½ cup",
+            "ingredient": "chile sauce"
+          },
+          {
+            "quantity": "¼ cup",
+            "ingredient": "ketchup"
+          },
+          {
+            "quantity": "¼ cup",
+            "ingredient": "soy sauce"
+          },
+          {
+            "quantity": "¼ cup",
+            "ingredient": "Worcestershire sauce"
+          },
+          {
+            "quantity": "¼ cup",
+            "ingredient": "rum"
+          },
+          {
+            "quantity": "2",
+            "ingredient": "cloves garlic, crushed"
+          },
+          {
+            "quantity": "1 teaspoon",
+            "ingredient": "dry mustard"
+          },
+          {
+            "quantity": "1 dash",
+            "ingredient": "ground black pepper"
+          },
+          {
+            "quantity": "",
+            "ingredient": "cooking spray"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "Preheat the oven to 350 degrees F (175 degrees C). Cut spareribs into serving size portions; wrap in double thickness of foil.",
+        "ingredients": [
+          {
+            "quantity": "4 pounds",
+            "ingredient": "pork spareribs"
+          }
+        ],
+        "time": {
+          "duration": "15 minutes",
+          "action": "prep"
+        }
+      },
+      {
+        "instruction": "Bake in the preheated oven for 1 ½ hours. Unwrap and drain drippings. Place ribs in a large roasting pan.",
+        "ingredients": [],
+        "time": {
+          "duration": "1.5 hours",
+          "action": "bake ribs"
+        }
+      },
+      {
+        "instruction": "Mix brown sugar, chile sauce, ketchup, soy sauce, Worcestershire sauce, rum, garlic, mustard, and pepper together in a bowl. Coat ribs with sauce and marinate at room temperature for 1 hour or refrigerate for 8 hours to overnight.",
+        "ingredients": [
+          {
+            "quantity": "1 cup",
+            "ingredient": "brown sugar"
+          },
+          {
+            "quantity": "½ cup",
+            "ingredient": "chile sauce"
+          },
+          {
+            "quantity": "¼ cup",
+            "ingredient": "ketchup"
+          },
+          {
+            "quantity": "¼ cup",
+            "ingredient": "soy sauce"
+          },
+          {
+            "quantity": "¼ cup",
+            "ingredient": "Worcestershire sauce"
+          },
+          {
+            "quantity": "¼ cup",
+            "ingredient": "rum"
+          },
+          {
+            "quantity": "2",
+            "ingredient": "cloves garlic, crushed"
+          },
+          {
+            "quantity": "1 teaspoon",
+            "ingredient": "dry mustard"
+          },
+          {
+            "quantity": "1 dash",
+            "ingredient": "ground black pepper"
+          }
+        ],
+        "time": {
+          "duration": "1 hour",
+          "action": "marinate ribs"
+        }
+      },
+      {
+        "instruction": "Preheat the grill to medium heat. Position the grate 4 inches above heat source; grease the grate with cooking spray. Cook ribs on the preheated grill for 30 minutes, basting with marinade.",
+        "ingredients": [
+          {
+            "quantity": "",
+            "ingredient": "cooking spray"
+          }
+        ],
+        "time": {
+          "duration": "30 minutes",
+          "action": "grill ribs"
+        }
+      }
+    ],
+    "sourceUrl": "https://www.allrecipes.com/recipe/22469/barbecue-ribs/"
+  }
+}

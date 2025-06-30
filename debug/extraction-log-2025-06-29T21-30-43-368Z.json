@@ -1,0 +1,263 @@
+{
+  "url": "https://www.recipetineats.com/lo-mein-noodles/",
+  "startTime": 59933691.30725,
+  "steps": [
+    {
+      "name": "URL Fetch",
+      "startTime": 59933691.6935,
+      "endTime": 59933830.067083,
+      "duration": 138.3735830038786,
+      "outputChars": 418415
+    },
+    {
+      "name": "HTML Extraction",
+      "startTime": 59933830.857416,
+      "endTime": 59934385.057125,
+      "duration": 554.1997090056539,
+      "inputChars": 418415,
+      "outputChars": 14357
+    },
+    {
+      "name": "OpenAI Extraction",
+      "startTime": 59934386.850583,
+      "endTime": 59979637.341666,
+      "duration": 45250.49108299613,
+      "inputChars": 14357,
+      "outputChars": 4886
+    }
+  ],
+  "status": "success",
+  "endTime": 59979637.467,
+  "totalDuration": 45946.15974999964,
+  "recipe": {
+    "title": "Lo Mein Noodles",
+    "subcomponents": [
+      {
+        "name": "Lo Mein",
+        "ingredients": [
+          {
+            "quantity": "1.5 tbsp",
+            "ingredient": "vegetable or peanut oil"
+          },
+          {
+            "quantity": "2",
+            "ingredient": "garlic cloves, finely minced"
+          },
+          {
+            "quantity": "0.5",
+            "ingredient": "onion, finely sliced"
+          },
+          {
+            "quantity": "300g",
+            "ingredient": "chicken or other protein, sliced 0.5cm thick"
+          },
+          {
+            "quantity": "2",
+            "ingredient": "medium carrots, peeled and cut into 4 x 0.75cm batons"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "large red capsicum / bell pepper, sliced"
+          },
+          {
+            "quantity": "6",
+            "ingredient": "green onions, cut into 5 cm lengths"
+          },
+          {
+            "quantity": "500g",
+            "ingredient": "Lo Mein, Hokkien or other medium thickness egg noodles, fresh, prepared per packet"
+          },
+          {
+            "quantity": "1/4 cup",
+            "ingredient": "water"
+          }
+        ]
+      },
+      {
+        "name": "Sauce",
+        "ingredients": [
+          {
+            "quantity": "4 tsp",
+            "ingredient": "cornflour / cornstarch"
+          },
+          {
+            "quantity": "2 tbsp",
+            "ingredient": "dark soy sauce"
+          },
+          {
+            "quantity": "2 tbsp",
+            "ingredient": "soy sauce or light soy sauce"
+          },
+          {
+            "quantity": "1 tbsp",
+            "ingredient": "Chinese cooking wine or Mirin"
+          },
+          {
+            "quantity": "1 tsp",
+            "ingredient": "white sugar"
+          },
+          {
+            "quantity": "0.5 tsp",
+            "ingredient": "sesame oil, toasted, optional"
+          },
+          {
+            "quantity": "1/4 tsp",
+            "ingredient": "white pepper"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "Mix cornflour and dark soy until lump free, then add remaining Sauce ingredients.",
+        "ingredients": [
+          {
+            "quantity": "4 tsp",
+            "ingredient": "cornflour / cornstarch"
+          },
+          {
+            "quantity": "2 tbsp",
+            "ingredient": "dark soy sauce"
+          },
+          {
+            "quantity": "2 tbsp",
+            "ingredient": "soy sauce or light soy sauce"
+          },
+          {
+            "quantity": "1 tbsp",
+            "ingredient": "Chinese cooking wine or Mirin"
+          },
+          {
+            "quantity": "1 tsp",
+            "ingredient": "white sugar"
+          },
+          {
+            "quantity": "0.5 tsp",
+            "ingredient": "sesame oil, toasted, optional"
+          },
+          {
+            "quantity": "1/4 tsp",
+            "ingredient": "white pepper"
+          }
+        ],
+        "time": null
+      },
+      {
+        "instruction": "Transfer 2 tsp Sauce into bowl with chicken. Toss to coat.",
+        "ingredients": [
+          {
+            "quantity": "2 tsp",
+            "ingredient": "Sauce"
+          },
+          {
+            "quantity": "300g",
+            "ingredient": "chicken or other protein, sliced 0.5cm thick"
+          }
+        ],
+        "time": null
+      },
+      {
+        "instruction": "Heat oil in a wok or large heavy based skillet over high heat until smoking.",
+        "ingredients": [
+          {
+            "quantity": "1.5 tbsp",
+            "ingredient": "vegetable or peanut oil"
+          }
+        ],
+        "time": null
+      },
+      {
+        "instruction": "Add onion and garlic, stir 30 seconds.",
+        "ingredients": [
+          {
+            "quantity": "2",
+            "ingredient": "garlic cloves, finely minced"
+          },
+          {
+            "quantity": "0.5",
+            "ingredient": "onion, finely sliced"
+          }
+        ],
+        "time": {
+          "duration": "30 seconds",
+          "action": "stir onion and garlic"
+        }
+      },
+      {
+        "instruction": "Add chicken, stir until white on the outside, still raw inside – 1 minute.",
+        "ingredients": [
+          {
+            "quantity": "300g",
+            "ingredient": "chicken or other protein, sliced 0.5cm thick"
+          }
+        ],
+        "time": {
+          "duration": "1 minute",
+          "action": "stir chicken"
+        }
+      },
+      {
+        "instruction": "Add carrot and capsicum/bell peppers, cook 2 minutes or until chicken is cooked.",
+        "ingredients": [
+          {
+            "quantity": "2",
+            "ingredient": "medium carrots, peeled and cut into 4 x 0.75cm batons"
+          },
+          {
+            "quantity": "1",
+            "ingredient": "large red capsicum / bell pepper, sliced"
+          }
+        ],
+        "time": {
+          "duration": "2 minutes",
+          "action": "cook carrot and capsicum/bell peppers"
+        }
+      },
+      {
+        "instruction": "Add noodles, Sauce and water. Use 2 wooden spoons and toss for 30 seconds.",
+        "ingredients": [
+          {
+            "quantity": "500g",
+            "ingredient": "Lo Mein, Hokkien or other medium thickness egg noodles, fresh, prepared per packet"
+          },
+          {
+            "quantity": "1/4 cup",
+            "ingredient": "water"
+          },
+          {
+            "quantity": "Sauce",
+            "ingredient": "remaining"
+          }
+        ],
+        "time": {
+          "duration": "30 seconds",
+          "action": "toss noodles, Sauce and water"
+        }
+      },
+      {
+        "instruction": "Add green onions, toss for another 1 minute until all the noodles are slick with sauce.",
+        "ingredients": [
+          {
+            "quantity": "6",
+            "ingredient": "green onions, cut into 5 cm lengths"
+          }
+        ],
+        "time": {
+          "duration": "1 minute",
+          "action": "toss green onions"
+        }
+      },
+      {
+        "instruction": "Serve immediately, garnished with extra green onions if using.",
+        "ingredients": [
+          {
+            "quantity": "extra",
+            "ingredient": "green onions"
+          }
+        ],
+        "time": null
+      }
+    ],
+    "sourceUrl": "https://www.recipetineats.com/lo-mein-noodles/"
+  }
+}
