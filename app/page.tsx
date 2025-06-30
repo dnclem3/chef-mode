@@ -6,23 +6,6 @@ import RecipeExtractor from "@/components/recipe-extractor"
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <ChefHat className="h-6 w-6 text-red-500" />
-          <span className="font-semibold text-xl">Chef Mode</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <Link href="/recipes">
-            <Button variant="ghost" size="sm">
-              My Recipes
-            </Button>
-          </Link>
-          <Link href="/auth/signin">
-            <Button size="sm">Sign In</Button>
-          </Link>
-        </div>
-      </header>
-
       <main className="flex-1 container mx-auto px-4 py-12 flex flex-col items-center justify-center max-w-3xl">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">Cook with focus, one step at a time</h1>
         <p className="text-lg text-center text-muted-foreground mb-12 max-w-2xl">

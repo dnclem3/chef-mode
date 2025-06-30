@@ -1,39 +1,26 @@
 import Link from "next/link"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+import { ChefHat } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function SiteNav() {
   return (
-    <NavigationMenu className="max-w-full w-full justify-start px-6 py-3">
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-              Home
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/recipes" legacyBehavior passHref>
-            <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-              Recipes
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/extract" legacyBehavior passHref>
-            <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-              Extract Recipe
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <header className="container mx-auto px-4 py-6 flex justify-between items-center">
+      <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
+          <ChefHat className="h-6 w-6 text-red-500" />
+          <span className="font-semibold text-xl">Chef Mode</span>
+        </Link>
+      </div>
+      <div className="flex items-center gap-4">
+        <Link href="/recipes">
+          <Button variant="ghost" size="sm">
+            My Recipes
+          </Button>
+        </Link>
+        <Link href="/auth/signin">
+          <Button size="sm">Sign In</Button>
+        </Link>
+      </div>
+    </header>
   )
 } 
