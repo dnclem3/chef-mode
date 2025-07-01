@@ -15,6 +15,8 @@ export default function RecipeExtractor() {
   const [isExtracting, setIsExtracting] = useState(false)
   const [error, setError] = useState("")
   const router = useRouter()
+
+  /* Photo feature coming soon
   const [showCamera, setShowCamera] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
 
@@ -82,6 +84,7 @@ export default function RecipeExtractor() {
       setShowCamera(false)
     }
   }
+  */
 
   const handleExtract = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -128,7 +131,7 @@ export default function RecipeExtractor() {
           <div className="space-y-3">
             <h2 className="text-2xl font-semibold text-gray-800">Extract a recipe</h2>
             <p className="text-lg text-muted-foreground">
-              Paste a URL or take a photo of any recipe and we'll transform it into a step-by-step cooking experience
+              Paste a URL of any recipe and we'll transform it into a step-by-step cooking experience
             </p>
           </div>
 
@@ -152,13 +155,14 @@ export default function RecipeExtractor() {
                 )}
               </Button>
             </div>
-
+            {/* 
             <div className="flex items-center gap-4">
               <div className="flex-1 border-t border-muted"></div>
               <span className="text-muted-foreground text-lg">or</span>
               <div className="flex-1 border-t border-muted"></div>
             </div>
 
+             Photo feature coming soon
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" id="image-upload" />
@@ -188,6 +192,7 @@ export default function RecipeExtractor() {
                 Take Photo
               </Button>
             </div>
+            */}
           </div>
 
           {error && (
@@ -196,17 +201,18 @@ export default function RecipeExtractor() {
             </Alert>
           )}
 
+          {/* Photo feature coming soon
           {selectedImage && (
             <Alert>
-              <AlertDescription className="text-emerald-600">Selected: {selectedImage.name}</AlertDescription>
+              <AlertDescription>Selected image: {selectedImage.name}</AlertDescription>
             </Alert>
           )}
 
           {(isExtracting || showCamera) && (
             <div className="flex items-center justify-center py-6">
               <div className="text-center">
-                <div className="flex justify-center mb-4">
-                  <ChefHat className="h-10 w-10 text-emerald-600 animate-bounce" />
+                <div className="flex items-center justify-center">
+                  <ChefHat className="h-8 w-8 animate-bounce" />
                 </div>
                 <p className="text-lg text-muted-foreground">
                   {showCamera ? "Chef is reading your recipe..." : "Chef is getting into the kitchen..."}
@@ -214,6 +220,7 @@ export default function RecipeExtractor() {
               </div>
             </div>
           )}
+          */}
         </form>
       </CardContent>
     </Card>
