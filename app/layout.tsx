@@ -19,6 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Umami Analytics */}
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="b5b528a0-a9f0-45e3-9e56-004cc873c3cf"
+        />
+      </head>
       <body className={inter.className}>
         <SiteNav />
         <main>
