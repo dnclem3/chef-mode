@@ -1,17 +1,19 @@
-import { NextResponse } from 'next/server'
-import { recipe_scrapers } from 'recipe-scrapers'
+import { NextRequest, NextResponse } from 'next/server'
+import { python } from '@vercel/python'
 
-export async function POST(request: Request) {
+export const runtime = 'edge'
+
+export async function POST(request: NextRequest) {
   console.log('🐍 Python extraction endpoint called')
   
   try {
     // Parse request body
     const body = await request.json()
-    console.log('📥 Request body:', {
-      hasUrl: !!body.url,
-      hasHtml: !!body.html,
-      urlLength: body.url?.length,
-      htmlLength: body.html?.length
+    console.log('🔄 Forwarding request to Python handler:', {
+      hasUrl: Boolean(body.url),
+      hasHtml: Boolean(body.html),
+      urlLength: body.url?.length || 0,
+      htmlLength: body.html?.length || 0
     })
 
     if (!body.url && !body.html) {
@@ -25,92 +27,30 @@ export async function POST(request: Request) {
       )
     }
 
-    // Extract recipe data
-    console.log('🔄 Starting recipe extraction')
-    const startTime = Date.now()
-    
-    let scraper
-    let source_method = ''
-    
-    if (body.url) {
-      console.log('🌐 Extracting from URL:', body.url)
-      scraper = await recipe_scrapers(body.url)
-      source_method = 'url_direct'
-    } else {
-      console.log('📄 Extracting from HTML content')
-      scraper = await recipe_scrapers.scrape_html(body.html, body.source_url || '')
-      source_method = 'html_content'
-    }
-
-    // Safe extraction with error handling
-    const recipe_data = {
-      title: await safeExtract(() => scraper.title()),
-      ingredients: await safeExtract(() => scraper.ingredients()) || [],
-      instructions: await safeExtract(() => scraper.instructions()) || [],
-      prep_time: await safeExtract(() => scraper.prep_time()),
-      cook_time: await safeExtract(() => scraper.cook_time()),
-      total_time: await safeExtract(() => scraper.total_time()),
-      yields: await safeExtract(() => scraper.yields()),
-      image: await safeExtract(() => scraper.image()),
-      nutrients: await safeExtract(() => scraper.nutrients()),
-      description: await safeExtract(() => scraper.description()),
-      canonical_url: await safeExtract(() => scraper.canonical_url()),
-      host: await safeExtract(() => scraper.host()),
-      site_name: await safeExtract(() => scraper.site_name()),
-      author: await safeExtract(() => scraper.author()),
-      cuisine: await safeExtract(() => scraper.cuisine()),
-      category: await safeExtract(() => scraper.category())
-    }
-
-    // Validate minimum requirements
-    if (!recipe_data.title || !recipe_data.ingredients?.length) {
-      console.log('❌ Invalid recipe data:', {
-        hasTitle: !!recipe_data.title,
-        ingredientsCount: recipe_data.ingredients?.length
-      })
-      return NextResponse.json(
-        { 
-          success: false,
-          error: 'Recipe must have title and ingredients',
-          partial_data: recipe_data
-        },
-        { status: 422 }
-      )
-    }
-
-    const duration = Date.now() - startTime
-    console.log('✅ Extraction successful:', {
-      duration: `${duration}ms`,
-      title: recipe_data.title,
-      ingredientsCount: recipe_data.ingredients.length,
-      instructionsCount: recipe_data.instructions.length
+    // Call Python handler
+    const pythonHandler = python('./api/python-extract.py')
+    const result = await pythonHandler({
+      body: JSON.stringify(body)
     })
 
-    return NextResponse.json({
-      success: true,
-      recipe: recipe_data,
-      metadata: {
-        extraction_time: duration,
-        source_method,
-        scraper_host: recipe_data.host,
-        scraper_site: recipe_data.site_name,
-        ingredients_count: recipe_data.ingredients.length,
-        instructions_count: recipe_data.instructions.length
-      }
+    // Parse Python response
+    const { statusCode, headers, body: responseBody } = result
+    const parsedBody = JSON.parse(responseBody)
+
+    // Return response with appropriate status code
+    return NextResponse.json(parsedBody, {
+      status: statusCode,
+      headers: headers
     })
 
   } catch (error) {
-    console.error('❌ Extraction failed:', error)
-    return NextResponse.json(
-      { 
-        success: false,
-        error: error instanceof Error ? error.message : 'Unknown error',
-        metadata: {
-          error_type: error instanceof Error ? error.constructor.name : typeof error
-        }
-      },
-      { status: 500 }
-    )
+    console.error('❌ Error in Python extraction route:', error)
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    }, {
+      status: 500
+    })
   }
 }
 
