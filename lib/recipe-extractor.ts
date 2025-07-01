@@ -137,14 +137,24 @@ function getPythonServiceConfig(): PythonServiceConfig {
   
   // In production, use the Vercel function
   // In development, try local Python service first
-  const serviceUrl = isProduction 
-    ? '/api/python-extract'  // Vercel function
-    : (process.env.PYTHON_SERVICE_URL || 'http://localhost:5001/extract')
+  let serviceUrl: string
+  if (isProduction) {
+    // In Vercel, construct full URL for internal function calls
+    const vercelUrl = process.env.VERCEL_URL || process.env.NEXT_PUBLIC_VERCEL_URL
+    if (vercelUrl) {
+      serviceUrl = `https://${vercelUrl}/api/python-extract`
+    } else {
+      // Fallback - skip Python service in production if no URL available
+      serviceUrl = ''
+    }
+  } else {
+    serviceUrl = process.env.PYTHON_SERVICE_URL || 'http://localhost:5001/extract'
+  }
   
   return {
     url: serviceUrl,
     timeout: parseInt(process.env.PYTHON_SERVICE_TIMEOUT || '30000'),
-    enabled: true,
+    enabled: serviceUrl !== '',
     useAIEnhancement
   }
 }
@@ -380,6 +390,19 @@ export async function extractWithPythonService(
 ): Promise<Recipe | null> {
   const stepStartTime = performance.now()
   const config = getPythonServiceConfig()
+  
+  // Early return if Python service is disabled or URL not available
+  if (!config.enabled || !config.url) {
+    console.log('🚫 PYTHON SERVICE DISABLED: No service URL available')
+    log.steps.push({
+      name: 'Python Service (Disabled)',
+      startTime: stepStartTime,
+      endTime: performance.now(),
+      duration: performance.now() - stepStartTime,
+      error: 'Python service disabled or URL not available'
+    })
+    return null
+  }
   
   console.log('🐍 PYTHON CONFIG:', {
     serviceUrl: config.url,
