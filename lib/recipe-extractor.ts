@@ -489,12 +489,21 @@ export async function extractWithPythonService(
     // Main extraction request
     console.log('📡 PYTHON REQUEST: Starting recipe extraction...')
     console.log('🔍 FETCH URL STRING:', {
-      urlString: config.url,
-      urlType: typeof config.url,
-      urlLength: config.url.length,
-      isValidUrl: (() => {
+      pythonServiceUrl: config.url,
+      recipeUrl: url,
+      serviceUrlType: typeof config.url,
+      serviceUrlLength: config.url.length,
+      isServiceUrlValid: (() => {
         try {
           new URL(config.url)
+          return true
+        } catch {
+          return false
+        }
+      })(),
+      isRecipeUrlValid: (() => {
+        try {
+          new URL(url)
           return true
         } catch {
           return false
@@ -516,7 +525,8 @@ export async function extractWithPythonService(
     }
     
     console.log('📤 REQUEST DETAILS:', {
-      url: config.url,
+      pythonServiceUrl: config.url,
+      recipeUrl: url,
       bodySize: `${JSON.stringify({ url, html, source_url: url }).length} chars`,
       headers: fetchOptions.headers
     })
