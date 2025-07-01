@@ -11,6 +11,7 @@ export function SiteNav() {
           <span className="font-semibold text-xl">Chef Mode</span>
         </Link>
       </div>
+{/* 
       <div className="flex items-center gap-4">
         <Link href="/recipes">
           <Button variant="ghost" size="sm">
@@ -21,6 +22,7 @@ export function SiteNav() {
           <Button size="sm">Sign In</Button>
         </Link>
       </div>
+*/}
     </header>
   )
 } 
