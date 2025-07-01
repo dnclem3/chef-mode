@@ -665,7 +665,17 @@ async function enhancePythonRecipeWithAI(
     try {
       enhancedRecipe = JSON.parse(responseContent) as Recipe
     } catch (jsonErr) {
-      throw new Error(`Failed to parse AI JSON: ${(jsonErr as Error).message}`)
+      console.warn('Primary JSON.parse failed – attempting to recover JSON block...', jsonErr)
+      const braceMatch = responseContent.match(/\{[\s\S]*\}/)
+      if (braceMatch) {
+        try {
+          enhancedRecipe = JSON.parse(braceMatch[0]) as Recipe
+        } catch (innerErr) {
+          throw new Error(`Failed to parse AI JSON after recovery attempt: ${(innerErr as Error).message}`)
+        }
+      } else {
+        throw new Error(`Failed to parse AI JSON: ${(jsonErr as Error).message}`)
+      }
     }
     
     // Validate and ensure required fields
