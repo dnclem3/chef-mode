@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "api/python-extract.py": {
-      "runtime": "vercel-python@3.9"
-    }
-  },
   "build": {
     "env": {
       "PYTHONPATH": "."
