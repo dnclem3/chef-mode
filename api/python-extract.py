@@ -24,11 +24,6 @@ class handler(BaseHTTPRequestHandler):
         """Handle recipe extraction requests"""
         start_time = time.time()
         
-        # Set CORS headers
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
-        
         try:
             # Check if recipe-scrapers is available
             if not SCRAPERS_AVAILABLE:
@@ -158,6 +153,9 @@ class handler(BaseHTTPRequestHandler):
         """Send successful JSON response"""
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
         self.end_headers()
         self.wfile.write(json.dumps(data).encode())
 
@@ -165,6 +163,9 @@ class handler(BaseHTTPRequestHandler):
         """Send error JSON response"""
         self.send_response(status_code)
         self.send_header('Content-type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
         self.end_headers()
         
         error_data = {

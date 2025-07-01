@@ -335,7 +335,21 @@ export async function extractRecipeWithAI(content: string, log: ExtractionLog): 
       throw new Error('No content received from OpenAI')
     }
 
-    const parsedRecipe = JSON.parse(responseContent) as Recipe
+    // Try to extract JSON from the response, handling potential text prefixes
+    let jsonStr = responseContent
+    try {
+      JSON.parse(jsonStr)
+    } catch (e) {
+      // If parsing fails, try to find JSON in the string
+      const jsonMatch = responseContent.match(/\{[\s\S]*\}/)
+      if (jsonMatch) {
+        jsonStr = jsonMatch[0]
+      } else {
+        throw new Error('Could not find valid JSON in OpenAI response')
+      }
+    }
+
+    const parsedRecipe = JSON.parse(jsonStr) as Recipe
     
     // Validate recipe structure
     if (!parsedRecipe.title) {
