@@ -140,11 +140,39 @@ function getPythonServiceConfig(): PythonServiceConfig {
   let serviceUrl: string
   if (isProduction) {
     // In Vercel, construct full URL for internal function calls
-    const vercelUrl = process.env.VERCEL_URL || process.env.NEXT_PUBLIC_VERCEL_URL
+    // Try multiple Vercel environment variables
+    const vercelUrl = process.env.VERCEL_URL || 
+                     process.env.NEXT_PUBLIC_VERCEL_URL || 
+                     process.env.VERCEL_PROJECT_PRODUCTION_URL
+    
     if (vercelUrl) {
-      serviceUrl = `https://${vercelUrl}/api/python-extract`
+      // Ensure URL has https:// protocol
+      const baseUrl = vercelUrl.startsWith('http') ? vercelUrl : `https://${vercelUrl}`
+      serviceUrl = `${baseUrl}/api/python-extract`
+      
+      // Validate the constructed URL
+      try {
+        new URL(serviceUrl)
+        console.log('✅ VERCEL URL VALID:', {
+          originalUrl: vercelUrl,
+          constructedUrl: serviceUrl,
+          envVars: {
+            VERCEL_URL: !!process.env.VERCEL_URL,
+            NEXT_PUBLIC_VERCEL_URL: !!process.env.NEXT_PUBLIC_VERCEL_URL,
+            VERCEL_PROJECT_PRODUCTION_URL: !!process.env.VERCEL_PROJECT_PRODUCTION_URL
+          }
+        })
+      } catch (urlError) {
+        console.log('❌ INVALID URL CONSTRUCTED:', {
+          originalUrl: vercelUrl,
+          attemptedUrl: serviceUrl,
+          error: urlError instanceof Error ? urlError.message : 'Invalid URL'
+        })
+        serviceUrl = '' // Disable service if URL is invalid
+      }
     } else {
       // Fallback - skip Python service in production if no URL available
+      console.log('❌ VERCEL URL NOT AVAILABLE: All Vercel URL environment variables are undefined')
       serviceUrl = ''
     }
   } else {
@@ -460,6 +488,20 @@ export async function extractWithPythonService(
     
     // Main extraction request
     console.log('📡 PYTHON REQUEST: Starting recipe extraction...')
+    console.log('🔍 FETCH URL STRING:', {
+      urlString: config.url,
+      urlType: typeof config.url,
+      urlLength: config.url.length,
+      isValidUrl: (() => {
+        try {
+          new URL(config.url)
+          return true
+        } catch {
+          return false
+        }
+      })()
+    })
+    
     const fetchOptions: RequestInit = {
       method: 'POST',
       headers: { 
@@ -546,6 +588,12 @@ export async function extractWithPythonService(
         }
       } catch (fetchError) {
         clearTimeout(timeoutId)
+        console.log('❌ FETCH ERROR DETAILS:', {
+          error: fetchError instanceof Error ? fetchError.message : 'Unknown error',
+          errorType: fetchError instanceof Error ? fetchError.constructor.name : typeof fetchError,
+          urlAttempted: config.url,
+          stack: fetchError instanceof Error ? fetchError.stack : undefined
+        })
         throw fetchError
       }
     } else {
