@@ -556,7 +556,33 @@ export async function extractWithPythonService(
         const response = await fetch(config.url, fetchOptions)
         clearTimeout(timeoutId)
         
-        const result: PythonServiceResponse = await response.json()
+        // Check response status before parsing JSON
+        if (!response.ok) {
+          const text = await response.text()
+          console.error('❌ Python service error:', {
+            status: response.status,
+            statusText: response.statusText,
+            responseText: text.slice(0, 1000), // First 1000 chars for debugging
+            contentType: response.headers.get('content-type'),
+            url: config.url
+          })
+          throw new Error(`Python service returned ${response.status}: ${response.statusText}`)
+        }
+        
+        // Try to parse JSON response
+        const responseText = await response.text()
+        let result: PythonServiceResponse
+        
+        try {
+          result = JSON.parse(responseText)
+        } catch (parseError) {
+          console.error('❌ Failed to parse Python service response:', {
+            error: parseError instanceof Error ? parseError.message : 'Unknown error',
+            responseText: responseText.slice(0, 1000),
+            url: config.url
+          })
+          throw new Error('Failed to parse Python service response')
+        }
         
         console.log('📥 PYTHON RESPONSE:', {
           success: result.success,
