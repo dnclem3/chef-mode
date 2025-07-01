@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { spawn } from 'child_process'
-import { promisify } from 'util'
+import { PythonShell } from 'python-shell'
+import path from 'path'
 
-export const runtime = 'edge'
 export const dynamic = 'force-dynamic'
 
 export async function POST(request: NextRequest) {
@@ -29,20 +28,29 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Call the Python script directly
-    const pythonProcess = await fetch(new URL('/api/python-extract.py', request.url), {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body)
+    // Run Python script using python-shell
+    const options = {
+      mode: 'json',
+      pythonPath: 'python3',
+      pythonOptions: ['-u'], // unbuffered output
+      scriptPath: path.join(process.cwd(), 'python-service'),
+      args: [JSON.stringify(body)]
+    }
+
+    const result = await new Promise((resolve, reject) => {
+      PythonShell.run('recipe_service.py', options, (err, results) => {
+        if (err) reject(err)
+        resolve(results?.[0] || null)
+      })
     })
 
-    const result = await pythonProcess.json()
+    if (!result) {
+      throw new Error('No result from Python script')
+    }
 
     // Return response with appropriate status code
     return NextResponse.json(result, {
-      status: result.success ? 200 : 422,
+      status: 200,
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
