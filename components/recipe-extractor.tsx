@@ -114,8 +114,9 @@ export default function RecipeExtractor() {
         throw new Error(error.error || 'Failed to extract recipe')
       }
       
-      const recipe = await response.json()
-      localStorage.setItem('extracted-recipe', JSON.stringify(recipe))
+      const data = await response.json()
+      const extractedRecipe = data.recipe || data
+      localStorage.setItem('extracted-recipe', JSON.stringify(extractedRecipe))
       router.push(`/cook/extracted`)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to extract recipe')

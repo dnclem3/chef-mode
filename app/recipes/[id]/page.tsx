@@ -118,18 +118,25 @@ export default function RecipePage({ params }: { params: { id: string } }) {
     return <div className="container mx-auto px-4 py-8">Recipe not found</div>
   }
 
+  // Add safety check for steps
+  if (!recipe.steps || !Array.isArray(recipe.steps) || recipe.steps.length === 0) {
+    return <div className="container mx-auto px-4 py-8">Recipe has no cooking steps</div>
+  }
+
   const totalSteps = recipe.steps.length
-  const progress = ((currentStep + 1) / totalSteps) * 100
+  const safeCurrentStep = Math.max(0, Math.min(currentStep, totalSteps - 1))
+  const currentStepData = recipe.steps[safeCurrentStep]
+  const progress = ((safeCurrentStep + 1) / totalSteps) * 100
 
   const handleNextStep = () => {
-    if (currentStep < totalSteps - 1) {
-      setCurrentStep(currentStep + 1)
+    if (safeCurrentStep < totalSteps - 1) {
+      setCurrentStep(prev => Math.min(totalSteps - 1, prev + 1))
     }
   }
 
   const handlePrevStep = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1)
+    if (safeCurrentStep > 0) {
+      setCurrentStep(prev => Math.max(0, prev - 1))
     }
   }
 
@@ -168,12 +175,12 @@ export default function RecipePage({ params }: { params: { id: string } }) {
           </div>
 
           <div className="md:w-1/2">
-            {recipe.subcomponents.map((component, componentIndex) => (
+            {recipe.subcomponents?.map((component, componentIndex) => (
               <Card key={componentIndex} className="mb-4">
                 <CardContent className="p-6">
                   <h2 className="text-xl font-semibold mb-4">{component.name}</h2>
                   <ul className="space-y-2">
-                    {component.ingredients.map((ingredient, ingredientIndex) => (
+                    {component.ingredients?.map((ingredient, ingredientIndex) => (
                       <li key={ingredientIndex} className="flex items-center gap-2">
                         <Button
                           variant="outline"
@@ -204,12 +211,12 @@ export default function RecipePage({ params }: { params: { id: string } }) {
       <div className="mb-6">
         <div className="flex justify-between items-center mb-2">
           <h2 className="text-xl font-semibold">
-            Step {currentStep + 1} of {totalSteps}
+            Step {safeCurrentStep + 1} of {totalSteps}
           </h2>
-          {recipe.steps[currentStep].time && (
+          {currentStepData?.time && (
             <StepTimer
-              duration={recipe.steps[currentStep].time.duration}
-              action={recipe.steps[currentStep].time.action}
+              duration={currentStepData.time.duration}
+              action={currentStepData.time.action}
             />
           )}
         </div>
@@ -218,14 +225,14 @@ export default function RecipePage({ params }: { params: { id: string } }) {
 
       <div className="mb-6">
         <div>
-          <p className="text-xl mb-6">{recipe.steps[currentStep].instruction}</p>
+          <p className="text-xl mb-6">{currentStepData?.instruction || 'No instruction available'}</p>
 
-          {recipe.steps[currentStep].ingredients.length > 0 && (
+          {currentStepData?.ingredients && currentStepData.ingredients.length > 0 && (
             <Card className="mb-6">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold mb-3">Ingredients for this step:</h3>
                 <ul className="space-y-2">
-                  {recipe.steps[currentStep].ingredients.map((ingredient, index) => (
+                  {currentStepData.ingredients.map((ingredient, index) => (
                     <li key={index} className="flex items-center gap-3">
                       <span className="h-2 w-2 rounded-full bg-emerald-600"></span>
                       <span className="text-lg">
@@ -245,7 +252,7 @@ export default function RecipePage({ params }: { params: { id: string } }) {
             <Button
               variant="outline"
               onClick={handlePrevStep}
-              disabled={currentStep === 0}
+              disabled={safeCurrentStep === 0}
               className="flex items-center gap-2 bg-transparent"
             >
               <ArrowLeft className="h-4 w-4" />
@@ -254,7 +261,7 @@ export default function RecipePage({ params }: { params: { id: string } }) {
 
             <Button
               onClick={handleNextStep}
-              disabled={currentStep === totalSteps - 1}
+              disabled={safeCurrentStep === totalSteps - 1}
               className="flex items-center gap-2"
             >
               Next Step

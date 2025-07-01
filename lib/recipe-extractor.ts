@@ -381,16 +381,20 @@ export async function extractWithPythonService(
   const stepStartTime = performance.now()
   const config = getPythonServiceConfig()
   
-  console.log('🐍 PYTHON SERVICE DEBUG:', {
-    url: url,
-    config: {
-      serviceUrl: config.url,
-      aiEnhancement: config.useAIEnhancement,
-      timeout: config.timeout,
-      enabled: config.enabled
-    },
+  console.log('🐍 PYTHON CONFIG:', {
+    serviceUrl: config.url,
+    aiEnhancement: config.useAIEnhancement,
+    timeout: config.timeout,
+    enabled: config.enabled,
+    isProduction: process.env.NODE_ENV === 'production',
+    isVercel: !!process.env.VERCEL,
     timestamp: new Date().toISOString()
   })
+  
+  // In production (Vercel) we skip the localhost health check entirely
+  if (!config.url.includes('localhost')) {
+    console.log('🔄 PRODUCTION: Skipping localhost health check')
+  }
   
   try {
     // For local development, do a quick health check first

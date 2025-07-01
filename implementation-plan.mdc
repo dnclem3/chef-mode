@@ -1,0 +1,55 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Hybrid Python + AI Enhancement — Implementation Plan
+
+## Progress Tracking
+
+### ✅ Step 1: Add environment toggle — **Done**
+Added `PYTHON_AI_ENHANCEMENT` environment variable support with default true.
+Extended `PythonServiceConfig` interface with `useAIEnhancement` boolean property.
+
+### ✅ Step 2: Create enhancement helper — **Done**
+Added `PYTHON_ENHANCEMENT_PROMPT` constant and `enhancePythonRecipeWithAI()` function.
+Function uses OpenAI to intelligently map ingredients to specific cooking steps with fallback.
+
+### ✅ Step 3: Wire helper into pipeline — **Done**
+Modified `extractWithPythonService()` to use AI enhancement when `config.useAIEnhancement` is true.
+Added conditional logic in both server-side and client-side success paths with graceful fallback.
+
+### ✅ Step 4: Remove now-unused direct conversion call in success path — **Done**
+Direct conversion calls replaced with conditional enhancement logic in Step 3.
+Basic conversion now only used as fallback within enhancement function when AI fails.
+
+### ✅ Step 5: Update validation tests — **Done**
+Added comprehensive test suite for Python service enhancement functionality in `lib/recipe-extractor.test.ts`.
+Tests verify AI ingredient mapping to steps and graceful fallback when enhancement fails.
+
+### ✅ Step 6: Update docs — **Done**
+Updated `PYTHON_SETUP.md` with hybrid Python + AI enhancement architecture documentation.
+Added configuration options, updated testing examples, and enhanced troubleshooting section.
+
+### 🔄 Step 7: Manual QA — **Ready for Testing**
+
+**Test Plan:**
+1. Start local Python service: `npm run python:dev`
+2. Start Next.js: `npm run dev` (in separate terminal)
+3. Extract AllRecipes burger recipe via UI - verify ingredients appear in specific steps
+4. Test fallback: Set `PYTHON_AI_ENHANCEMENT=false` in `.env.local` → verify basic extraction still works
+5. Test error handling: Stop Python service → verify graceful fallback to pure AI
+
+**Expected Results:**
+- ✅ Step 2: "Whisk egg, salt, pepper" → shows those 3 ingredients
+- ✅ Step 3: "Add ground beef and breadcrumbs" → shows those 2 ingredients  
+- ✅ Enhanced cooking experience with contextual ingredient lists
+
+## Environment Variables
+
+Create `.env.local` with:
+```bash
+# Python service enhancement
+PYTHON_AI_ENHANCEMENT=true
+PYTHON_SERVICE_TIMEOUT=30000
+```
