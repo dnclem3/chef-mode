@@ -5,6 +5,8 @@
 
 # testing
 /coverage
+recipe.html
+scripts/test-html-extraction.ts
 
 # next.js
 /.next/
